@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Jewelry Planner | PocketSmart AI{% endblock %}
+{% block content %}
+<section class="container planner-page">
+    <div class="page-heading"><h1>Jewelry Budget Planner</h1></div>
+    <form method="post" action="/generate-jewelry" enctype="multipart/form-data" class="planner-form card" data-validate="true">
+        <div class="form-grid">
+            <div><label>Budget</label><input type="number" name="budget" min="1" step="1" required></div>
+            <div><label>Occasion</label>
+                <select name="occasion" required>
+                    <option>Wedding</option><option>Engagement</option><option>Birthday</option><option>Party</option><option>Festival</option><option>Casual</option>
+                </select>
+            </div>
+            <div><label>Jewelry Type</label>
+                <select name="jewelry_type" required>
+                    <option>Necklace</option><option>Earrings</option><option>Bracelet</option><option>Ring</option><option>Complete Set</option>
+                </select>
+            </div>
+            <div><label>Style</label>
+                <select name="style" required>
+                    <option>Traditional</option><option>Modern</option><option>Minimal</option><option>Bridal</option><option>Elegant</option>
+                </select>
+            </div>
+            <div><label>Preferred Material</label>
+                <select name="material" required>
+                    <option>Gold</option><option>Silver</option><option>Artificial</option><option>Diamond</option><option>Any</option>
+                </select>
+            </div>
+            <div><label>Outfit Color</label><input type="text" name="outfit_color" required></div>
+            <div class="full-width"><label>Outfit Description</label><textarea name="outfit_description" rows="4" required></textarea></div>
+            <div class="full-width"><label>Optional Outfit Image</label><input type="file" name="image" accept="image/png,image/jpeg,image/webp"></div>
+            <div class="full-width"><label>Additional Requirements</label><textarea name="additional_requirements" rows="3"></textarea></div>
+        </div>
+        <button class="btn btn-primary" type="submit">Generate Jewelry Suggestions</button>
+    </form>
+</section>
+{% endblock %}

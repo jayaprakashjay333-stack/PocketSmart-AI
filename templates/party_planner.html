@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Party Planner | PocketSmart AI{% endblock %}
+{% block content %}
+<section class="container planner-page">
+    <div class="page-heading"><h1>Party Budget Planner</h1></div>
+    <form method="post" action="/generate-party" class="planner-form card" data-validate="true">
+        <div class="form-grid">
+            <div><label>Total Budget</label><input type="number" name="total_budget" min="1" step="1" required></div>
+            <div><label>Event Type</label>
+                <select name="event_type" required>
+                    <option>Birthday</option><option>Wedding</option><option>Engagement</option><option>Corporate</option><option>College Event</option><option>Other</option>
+                </select>
+            </div>
+            <div><label>Number of Guests</label><input type="number" name="number_of_guests" min="1" required></div>
+            <div><label>Venue Type</label><input type="text" name="venue_type" required></div>
+            <div><label>Event Location</label><input type="text" name="event_location" required></div>
+            <div><label>Food Preference</label><input type="text" name="food_preference" required></div>
+            <div><label>Decoration Preference</label><input type="text" name="decoration_preference" required></div>
+            <div><label>Entertainment Preference</label><input type="text" name="entertainment_preference" required></div>
+            <div><label>Accommodation Required</label>
+                <select name="accommodation_required" required><option>Yes</option><option>No</option></select>
+            </div>
+            <div class="full-width"><label>Additional Requirements</label><textarea name="additional_requirements" rows="4"></textarea></div>
+        </div>
+        <button class="btn btn-primary" type="submit">Generate Party Budget</button>
+    </form>
+</section>
+{% endblock %}

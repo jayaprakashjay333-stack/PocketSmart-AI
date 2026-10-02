@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Home Interior Planner | PocketSmart AI{% endblock %}
+{% block content %}
+<section class="container planner-page">
+    <div class="page-heading"><h1>Home Interior Planner</h1></div>
+    <form method="post" action="/generate-home" class="planner-form card" data-validate="true">
+        <div class="form-grid">
+            <div><label>Total Budget</label><input type="number" name="total_budget" min="1" step="1" required></div>
+            <div><label>Room Type</label>
+                <select name="room_type" required>
+                    <option>Living Room</option><option>Bedroom</option><option>Kitchen</option><option>Dining Room</option><option>Full Home</option>
+                </select>
+            </div>
+            <div><label>Style</label>
+                <select name="style" required>
+                    <option>Modern</option><option>Minimalist</option><option>Traditional</option><option>Luxury</option><option>Budget Friendly</option>
+                </select>
+            </div>
+            <div><label>Items Required</label><input type="text" name="items_required" placeholder="Example: Sofa, lamp, shelf" required></div>
+            <div><label>Quantity</label><input type="text" name="quantity" placeholder="Example: 3 items" required></div>
+            <div><label>Preferred Platform</label>
+                <select name="preferred_platform" required>
+                    <option>Amazon</option><option>Flipkart</option><option>IKEA</option><option>Any</option>
+                </select>
+            </div>
+            <div class="full-width"><label>Additional Requirements</label><textarea name="additional_requirements" rows="4"></textarea></div>
+        </div>
+        <button class="btn btn-primary" type="submit">Generate Recommendations</button>
+    </form>
+</section>
+{% endblock %}

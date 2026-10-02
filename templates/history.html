@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}History | PocketSmart AI{% endblock %}
+{% block content %}
+<section class="container history-page">
+    <div class="page-heading"><h1>Recommendation History</h1></div>
+    {% if entries %}
+        <div class="history-list card">
+            {% for entry in entries %}
+            <div class="history-item">
+                <div>
+                    <p><strong>{{ entry.planner_type|title }}</strong></p>
+                    <p>Budget: ₹{{ entry.budget }}</p>
+                    <p>Created: {{ entry.created_at.strftime('%d %b %Y %H:%M') }}</p>
+                </div>
+                <div class="history-actions">
+                    <a href="/recommendations-details/{{ entry.id }}" class="btn btn-secondary">View Details</a>
+                    <form method="post" action="/history/{{ entry.id }}/delete" onsubmit="return confirm('Delete this recommendation?');">
+                        <button class="btn btn-danger" type="submit">Delete</button>
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="empty-state card">
+            <h3>No saved recommendations yet.</h3>
+            <p>Create a planner recommendation to get started.</p>
+        </div>
+    {% endif %}
+</section>
+{% endblock %}

@@ -1,0 +1,105 @@
+:root {
+    --bg: #f4f7fb;
+    --panel: #ffffff;
+    --panel-strong: #f0f5ff;
+    --text: #1d2736;
+    --muted: #52607a;
+    --accent: #5a67d8;
+    --accent-2: #7c3aed;
+    --success: #1aa179;
+    --danger: #d64545;
+    --warning: #c97a10;
+    --shadow: 0 12px 30px rgba(30, 41, 59, 0.08);
+}
+
+body.dark-mode {
+    --bg: #0e172a;
+    --panel: #111f35;
+    --panel-strong: #17304f;
+    --text: #edf3ff;
+    --muted: #b7c8e0;
+    --accent: #8aa2ff;
+    --accent-2: #b697ff;
+    --success: #5bd3a8;
+    --danger: #ff7a7a;
+    --warning: #ffb454;
+    --shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, sans-serif;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+a { text-decoration: none; color: inherit; }
+.container { width: min(1100px, calc(100% - 32px)); margin: 0 auto; }
+.page-shell { min-height: 100vh; display: flex; flex-direction: column; }
+.topbar { background: rgba(17,31,53,0.82); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 10; }
+body.dark-mode .topbar { background: rgba(4,10,18,0.9); }
+.navbar { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
+.brand { font-size: 1.5rem; font-weight: 700; color: #fff; }
+.nav-links { display: flex; align-items: center; gap: 18px; color: #ebf0ff; }
+.nav-links a { opacity: 0.9; }
+.nav-links a:hover { opacity: 1; }
+.theme-toggle { border: none; background: rgba(255,255,255,0.1); color: #fff; width: 42px; height: 42px; border-radius: 50%; cursor: pointer; }
+
+.hero { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 28px; align-items: center; padding: 60px 0 30px; }
+.eyebrow { text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); font-size: 0.75rem; font-weight: 700; }
+h1 { font-size: clamp(2.4rem, 5vw, 4rem); margin: 10px 0; }
+.subtitle { color: var(--muted); font-size: 1.15rem; }
+.hero-actions { display: flex; gap: 14px; margin-top: 22px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; border: none; border-radius: 12px; padding: 12px 18px; font-weight: 700; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.btn:hover { transform: translateY(-1px); }
+.btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: white; box-shadow: var(--shadow); }
+.btn-secondary { background: var(--panel); color: var(--text); border: 1px solid rgba(122, 134, 164, 0.25); }
+.btn-danger { background: var(--danger); color: white; }
+
+.card { background: var(--panel); border-radius: 20px; padding: 24px; box-shadow: var(--shadow); }
+.planner-grid, .feature-grid, .testimonial-grid, .steps, .stats-grid, .results-grid { display: grid; gap: 20px; }
+.planner-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 20px; }
+.feature-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 30px; }
+.testimonial-grid, .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.stats-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 30px 0; }
+.results-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.planner-card, .step, .feature-item, .quote, .stat-box { min-height: 180px; }
+.feature-item h3, .planner-card h3, .step h3 { margin-top: 0; }
+.list-grid { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 15px; }
+.list-grid li { background: var(--panel-strong); padding: 14px; border-radius: 12px; }
+
+.auth-wrap { display: flex; justify-content: center; padding: 80px 0; }
+.auth-card { width: min(480px, 100%); }
+form { display: grid; gap: 12px; }
+label { font-weight: 600; }
+input, select, textarea { width: 100%; padding: 12px 14px; border-radius: 12px; border: 1px solid rgba(122,134,164,0.25); background: var(--bg); color: var(--text); }
+textarea { resize: vertical; }
+.planner-page, .results-page, .history-page { padding: 40px 0 60px; }
+.page-heading { margin-bottom: 18px; }
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.full-width { grid-column: 1 / -1; }
+.summary-card { margin-bottom: 18px; }
+.alert { border-radius: 12px; padding: 12px 14px; margin: 18px auto; width: min(1100px, calc(100% - 32px)); }
+.alert-error { background: rgba(214,69,69,0.12); border: 1px solid rgba(214,69,69,0.2); color: var(--danger); }
+.alert-success { background: rgba(26,161,121,0.12); border: 1px solid rgba(26,161,121,0.2); color: var(--success); }
+.alert-warning { background: rgba(201,122,16,0.12); border: 1px solid rgba(201,122,16,0.2); color: var(--warning); }
+.site-footer { margin-top: auto; background: rgba(17,31,53,0.92); color: white; padding: 22px 0; }
+.footer-inner { display: flex; justify-content: space-between; gap: 12px; }
+.dashboard-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 14px; }
+.history-list { display: grid; gap: 12px; }
+.history-item { display: flex; justify-content: space-between; gap: 20px; align-items: center; background: var(--panel-strong); padding: 14px 18px; border-radius: 12px; }
+.history-actions { display: flex; align-items: center; gap: 10px; }
+.empty-state { text-align: center; }
+.uploaded-image { display: block; max-width: 100%; border-radius: 14px; margin: 10px auto; }
+.toast-container { position: fixed; right: 20px; bottom: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 100; }
+.toast { background: var(--panel); border-left: 5px solid var(--accent); color: var(--text); padding: 12px 16px; border-radius: 10px; box-shadow: var(--shadow); }
+.toast.error { border-left-color: var(--danger); }
+.toast.success { border-left-color: var(--success); }
+
+@media (max-width: 900px) {
+    .hero, .planner-grid, .feature-grid, .testimonial-grid, .steps, .stats-grid, .results-grid, .form-grid { grid-template-columns: 1fr; }
+    .navbar { flex-wrap: wrap; gap: 12px; }
+    .nav-links { flex-wrap: wrap; }
+    .dashboard-header, .footer-inner, .history-item { flex-direction: column; align-items: flex-start; }
+}

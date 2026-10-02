@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %}PocketSmart AI | Smart Budget Assistant{% endblock %}
+{% block content %}
+<section class="hero container">
+    <div class="hero-copy">
+        <p class="eyebrow">Smart planning made easier</p>
+        <h1>PocketSmart AI</h1>
+        <p class="subtitle">Your Smart Budget & Recommendation Assistant</p>
+        <div class="hero-actions">
+            <a class="btn btn-primary" href="/register">Get Started</a>
+            <a class="btn btn-secondary" href="/login">Login</a>
+        </div>
+    </div>
+    <div class="hero-visual card">
+        <div class="mini-stat">
+            <strong>₹25k</strong>
+            <span>Budget-friendly planning</span>
+        </div>
+        <div class="mini-stat">
+            <strong>3</strong>
+            <span>Planner types</span>
+        </div>
+        <div class="mini-stat">
+            <strong>AI</strong>
+            <span>Smart, structured suggestions</span>
+        </div>
+    </div>
+</section>
+
+<section class="container planner-grid">
+    <article class="card planner-card">
+        <h3>Home Interior</h3>
+        <p>Plan your home within your budget.</p>
+        <a class="btn btn-primary" href="/home-planner">Explore</a>
+    </article>
+    <article class="card planner-card">
+        <h3>Party Planner</h3>
+        <p>Plan food, venue and decoration according to your budget.</p>
+        <a class="btn btn-primary" href="/party-planner">Explore</a>
+    </article>
+    <article class="card planner-card">
+        <h3>Jewelry Planner</h3>
+        <p>Find jewelry matching your occasion, style and budget.</p>
+        <a class="btn btn-primary" href="/jewelry-planner">Explore</a>
+    </article>
+</section>
+
+<section class="container features">
+    <h2>Features</h2>
+    <div class="feature-grid">
+        <div class="card feature-item"><h3>Budget-first planning</h3><p>Keep recommendations within your predefined budget.</p></div>
+        <div class="card feature-item"><h3>AI-powered suggestions</h3><p>Receive structured recommendations with estimated pricing.</p></div>
+        <div class="card feature-item"><h3>Personal history</h3><p>Review, compare, and revisit previous recommendations.</p></div>
+        <div class="card feature-item"><h3>Secure accounts</h3><p>Protected user access with password hashing and JWT cookies.</p></div>
+    </div>
+</section>
+
+<section class="container process">
+    <h2>How it works</h2>
+    <div class="steps">
+        <div class="step card"><span>1</span><h3>Enter details</h3><p>Share your budget and preferences.</p></div>
+        <div class="step card"><span>2</span><h3>AI recommends</h3><p>Get a smart estimate and category split.</p></div>
+        <div class="step card"><span>3</span><h3>Save and review</h3><p>View history and compare plans.</p></div>
+    </div>
+</section>
+
+<section class="container testimonials">
+    <h2>Testimonials</h2>
+    <div class="testimonial-grid">
+        <div class="card quote"><p>“The party planner gave me a realistic budget split without overspending.”</p><strong>— Aisha</strong></div>
+        <div class="card quote"><p>“I used it for my home makeover and it kept me organized and on budget.”</p><strong>— Rohan</strong></div>
+        <div class="card quote"><p>“The jewelry planner was simple and perfect for festive gifting ideas.”</p><strong>— Meera</strong></div>
+    </div>
+</section>
+{% endblock %}

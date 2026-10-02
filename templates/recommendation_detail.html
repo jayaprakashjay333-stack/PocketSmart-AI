@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Recommendation Details | PocketSmart AI{% endblock %}
+{% block content %}
+<section class="container results-page">
+    <h1>Recommendation Details</h1>
+    <div class="summary-card card">
+        <p><strong>Planner:</strong> {{ item.planner_type|title }}</p>
+        <p><strong>Budget:</strong> ₹{{ result.budget }}</p>
+        <p><strong>Estimated Total:</strong> ₹{{ result.estimated_total }}</p>
+        <p><strong>Remaining Budget:</strong> ₹{{ result.remaining_budget }}</p>
+    </div>
+    {% if result.warning %}<div class="alert alert-warning">{{ result.warning }}</div>{% endif %}
+    <div class="card"><h2>Category Breakdown</h2><ul class="list-grid">{% for c in result.categories %}<li><strong>{{ c.category }}</strong> — ₹{{ c.allocation }}<br><span>{{ c.suggestion }}</span></li>{% endfor %}</ul></div>
+    <div class="card"><h2>Product / Service Cards</h2><div class="results-grid">{% for item in result.recommendations %}<div class="result-item"><h3>{{ item.name }}</h3><p><strong>Category:</strong> {{ item.category }}</p><p><strong>Estimated Price:</strong> ₹{{ item.estimated_price }}</p><p><strong>Platform:</strong> {{ item.platform }}</p><p><strong>Reason:</strong> {{ item.reason }}</p>{% if item.search_link %}<a href="{{ item.search_link }}" target="_blank" class="btn btn-secondary">Search/View</a>{% endif %}</div>{% endfor %}</div></div>
+    <div class="card"><h2>Money-saving tips</h2><ul>{% for tip in result.money_saving_tips %}<li>{{ tip }}</li>{% endfor %}</ul></div>
+</section>
+{% endblock %}

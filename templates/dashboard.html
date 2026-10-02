@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Dashboard | PocketSmart AI{% endblock %}
+{% block content %}
+<section class="container dashboard">
+    <div class="dashboard-header">
+        <div>
+            <p class="eyebrow">Welcome back</p>
+            <h1>Hello, {{ user.name }}</h1>
+        </div>
+        <a href="/history" class="btn btn-secondary">View History</a>
+    </div>
+    <div class="stats-grid">
+        <div class="card stat-box"><h3>{{ total_history }}</h3><p>Saved Recommendations</p></div>
+        <div class="card stat-box"><h3>3</h3><p>Available Planners</p></div>
+        <div class="card stat-box"><h3>{{ recent_count }}</h3><p>Recent Entries</p></div>
+    </div>
+    <div class="planner-grid">
+        <div class="card planner-card"><h3>Home Interior</h3><p>Craft a home setup and budget plan.</p><a class="btn btn-primary" href="/home-planner">Open Planner</a></div>
+        <div class="card planner-card"><h3>Party Planner</h3><p>Build a celebration within a realistic budget.</p><a class="btn btn-primary" href="/party-planner">Open Planner</a></div>
+        <div class="card planner-card"><h3>Jewelry Planner</h3><p>Match style, occasion, and price point.</p><a class="btn btn-primary" href="/jewelry-planner">Open Planner</a></div>
+    </div>
+    {% if recent_history %}
+    <div class="card recent-history">
+        <h2>Recent recommendations</h2>
+        <ul>
+            {% for item in recent_history %}
+            <li><strong>{{ item.planner_type|title }}</strong> — ₹{{ item.budget }} — {{ item.created_at.strftime('%d %b %Y') }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+</section>
+{% endblock %}

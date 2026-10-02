@@ -1,0 +1,6 @@
+.env
+**pycache**/
+*.pyc
+data/*.db
+static/uploads/*
+.vscode/
