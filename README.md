@@ -77,6 +77,14 @@ uvicorn main:app --reload
 
 Visit `http://localhost:8000/`
 
+## Deploy a Demo
+1. Open the [Render one-click deploy page](https://render.com/deploy?repo=https://github.com/jayaprakashjay333-stack/PocketSmart-AI).
+2. Sign in to Render and create the web service from this repository.
+3. After deployment completes, open the `onrender.com` URL shown on the service page.
+4. The demo login is `demo@pocketsmart.ai` / `demo12345`. For live Gemini suggestions, add `GEMINI_API_KEY` under the service's Environment settings and redeploy.
+
+The included `render.yaml` configures a free demo service. Its SQLite database is ephemeral on the free service, so user accounts and recommendation history may reset after a restart or redeploy. For persistent production data, use a managed PostgreSQL database and set `DATABASE_URL` accordingly.
+
 ## Getting a Gemini API Key
 1. Go to Google AI Studio.
 2. Create a new API key.
